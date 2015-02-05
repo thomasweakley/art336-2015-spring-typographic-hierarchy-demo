@@ -1,0 +1,14 @@
+body {
+    background-color: #fff;
+    color: $color;
+    @include body-font-light;
+    margin: 0 auto;
+    // margin: top/bottom left/right;
+    max-width: 600px;
+    width: 100%; 
+}
+
+h1, h2, h3, h4 {
+    @include headline-font;
+    line-height: 1;
+}
