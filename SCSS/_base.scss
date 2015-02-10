@@ -1,7 +1,9 @@
 body {
-    background-color: #fff;
+    background-color: $background-color;
     color: $color;
     @include body-font-light;
+    font-size: $font-size;
+    line-height: $line-height;
     margin: 0 auto;
     // margin: top/bottom left/right;
     max-width: 600px;
@@ -11,4 +13,44 @@ body {
 h1, h2, h3, h4 {
     @include headline-font;
     line-height: 1;
+}
+
+h1 {
+    font-size: 4em;
+    margin: 1em 0 1.25em 0;
+    //margin: top right bottm left;
+    text-transform: capitalize;
+}
+
+
+h2 {
+    font-size: 3em;
+    margin: 1em 0 .125em 0;
+    text-transform: uppercase;
+}
+
+
+h3 {
+    font-size: 2em;
+    margin: 1em 0 .125em 0;
+    text-transform: capitalize;
+}
+
+
+h4 {
+    font-size: 1.125em;
+    margin: 1em 0 .05em 0;
+}
+
+h1 + p, h2 + p, 
+h3 + p, h4 + p {
+    margin-top: 0;
+}
+
+b, strong {
+    @include body-font-bold;
+}
+
+i, em {
+    @include body-font-light-italic;
 }
