@@ -26,6 +26,10 @@
 
 //* reuseable variables, define variables in globals.scss then put in base.scss;
 $color: #262626;
-$font-size: 22px;
+$base-font-size: 22px;
 $line-height: 1.45;
 $background-color: #fff;
+
+@function em($px, $base: $base-font-size) {
+    @return ($px / $base) * 1em; 
+}

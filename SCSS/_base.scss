@@ -2,7 +2,7 @@ body {
     background-color: $background-color;
     color: $color;
     @include body-font-light;
-    font-size: $font-size;
+    font-size: $base-font-size;
     line-height: $line-height;
     margin: 0 auto;
     // margin: top/bottom left/right;
@@ -16,30 +16,30 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: 4em;
-    margin: 1em 0 1.25em 0;
+    font-size: em(60px);
+    margin: em(20px) 0 em(40px) 0;
     //margin: top right bottm left;
     text-transform: capitalize;
 }
 
 
 h2 {
-    font-size: 3em;
-    margin: 1em 0 .125em 0;
+    font-size: em(44px);
+    margin: em(20px) 0 em(10px) 0;
     text-transform: uppercase;
 }
 
 
 h3 {
-    font-size: 2em;
-    margin: 1em 0 .125em 0;
+    font-size: em(34px);
+    margin: em(20px) 0 em(10px) 0;
     text-transform: capitalize;
 }
 
 
 h4 {
-    font-size: 1.125em;
-    margin: 1em 0 .05em 0;
+    font-size: em(24px);
+    margin: em(20px) 0 em(10px) 0;
 }
 
 h1 + p, h2 + p, 
@@ -54,3 +54,78 @@ b, strong {
 i, em {
     @include body-font-light-italic;
 }
+
+blockquote {
+    background-color: lighten($color,70%);
+    margin: 0;
+    padding: em(16px);
+}
+
+// selects only first <p> inside <blockquote>;
+blockquote p:first-of-type {
+    margin-top: 0;
+}
+
+// make <cite> bold and align to right;
+blockquote cite {
+    display: block;
+    @inlcude body-font-bold;
+    text-align: right;
+}
+
+//style <a> tag (link);
+//transition fades in 1000 miliseconds;
+a {
+    background-color: $color;
+    border-radius: 4px;
+    color: #fff;
+    @include body-font-light-italic;
+    padding: 0 5px 2px 5px;
+    text-decoration: none;
+    //transition: background-color 2000ms linear;
+    //transition: color 2000ms linear;
+    transition: all 2000ms linear;
+}
+
+//transition fades out 1000 miliseconds;
+a:hover {
+    background-color: lighten($color, 35%);
+    color: darken(#fff, 35%);
+    //transition: background-color 2000ms linear;
+    //transition: color 2000ms linear;
+    transition: all 2000ms linear;
+
+}
+
+//adjustment to definition list;
+dt {
+    @include body-font-bold;
+}
+
+dd {
+    margin: 0 0 em(10px) 0;
+}
+
+//adjustment to ordered list and unordered list;
+ul {
+    margin: 0 0 0 1em;
+    //margin: 0 0 0 em(60px);
+    padding: 0;
+}
+
+//ol that comes immediately after a <p> moves up 20px;
+p + ul
+    {margin-top: em(-20px);
+}
+
+ol{
+    // this 'list-stlye-type' command puts a 0 before each single digit;
+    list-style-type: decimal-leading-zero;
+    margin: 0 0 em(40px) 2em;
+    padding: 0;
+}
+
+ol li{
+    margin-bottom: em(8px)
+}
+
